@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEFT/JEDI INTEGRATION TEST. USING TASK 110 FROM DEFT_TASK ON ADCR AS AN EXAMPLE. -->
+<!-- IT CONFORMS TO THE GRAPHML XML SCHEMA -->
+<graphml
+	xmlns="http://graphml.graphdrawing.org/xmlns"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+
+  <key attr.name="id"		attr.type="string"	for="edge"	id="id"	/>
+  <key attr.name="state"	attr.type="string"	for="edge"	id="state"	/>
+  <key attr.name="name"		attr.type="string"	for="edge"	id="name"	/>
+  <key attr.name="format"	attr.type="string"	for="edge"	id="format"	/>
+  <key attr.name="flavor"	attr.type="string"	for="edge"	id="flavor"	/>
+  <key attr.name="comment"	attr.type="string"	for="edge"	id="comment"	/>
+  <key attr.name="meta"		attr.type="string"	for="edge"	id="meta"	/>
+
+  <key attr.name="state"	attr.type="string"	for="node"	id="state"	/> <!-- both -->
+
+  <key attr.name="name"		attr.type="string"	for="node"	id="name"	/> <!-- meta -->
+  <key attr.name="template"	attr.type="string"	for="node"	id="template"	/> <!-- meta -->
+  <key attr.name="vo"		attr.type="string"	for="node"	id="vo"		/> <!-- meta -->
+  <key attr.name="wg"		attr.type="string"	for="node"	id="wg"		/> <!-- meta -->
+  <key attr.name="cloud"	attr.type="string"	for="node"	id="cloud"	/> <!-- meta -->
+  <key attr.name="site"		attr.type="string"	for="node"	id="site"	/> <!-- meta -->
+  <key attr.name="requestor"	attr.type="string"	for="node"	id="requestor"	/> <!-- meta -->
+  <key attr.name="manager"	attr.type="string"	for="node"	id="manager"	/> <!-- meta -->
+
+  <key attr.name="tag"		attr.type="string"	for="node"	id="tag"	/> <!-- task -->
+  <key attr.name="comment"	attr.type="string"	for="node"	id="comment"	/> <!-- task -->
+  <key attr.name="meta"		attr.type="string"	for="node"	id="meta"	/> <!-- task -->
+  <key attr.name="param"	attr.type="string"	for="node"	id="param"	/> <!-- task -->
+
+
+
+  <key attr.name="last_update"	attr.type="string"	for="node"	id="last_update"/>
+
+  <graph id="real task template" edgedefault="directed">
+    <node id="entry">
+	<data key="name">DEFT/JEDI Integration Test</data>
+	<data key="state">template</data>
+	<data key="comment">Using ADCR TASK 110 as an example</data>
+	<data key="vo">ATLAS</data>
+	<data key="wg">Test</data>
+	<data key="cloud">US</data>
+	<data key="site">BNL</data>
+	<data key="param">entry task parameters</data>
+	<data key="requestor">M.Potekhin</data>
+	<data key="manager">T.Maeno</data>
+	<data key="template">0</data>
+	<data key="tag">entry</data>
+    </node>
+    <node id="evgen">
+	<data key="state">template</data>
+	<data key="tag">e2342</data>
+	<data key="comment">Event Generation</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">{ "architecture": "i686-slc5-gcc43-opt", "cloud": "CERN", "coreCount": 1, "jobParameters": [ { "type": "constant", "value": "ecmEnergy=8000" }, { "type": "constant", "value": "runNumber=185152" }, { "offset": 0, "param_type": "number", "type": "template", "value": "firstEvent=${FIRSTEVENT}" }, { "offset": 0, "param_type": "number", "type": "template", "value": "randomSeed=${RNDMSEED}" }, { "type": "constant", "value": "jobConfig=MC12JobOptions/MC12.185152.Sherpa_CT10_SinglePhotonPt110.py" }, { "dataset": "mc12_valid.185152.Sherpa_CT10_SinglePhotonPt110.evgen.EVNT.e2342_tid01363687_00", "offset": 0, "param_type": "output", "token": "ATLASDATADISK", "type": "template", "value": "outputEVNTFile=EVNT.01363687._${SN}.pool.root" }, { "dataset": "group.phys-gener.sherpa010400.185152.Sherpa_SinglePhotonPt110_8TeV.TXT.mc12_v1/", "offset": 0, "param_type": "input", "type": "template", "value": "inputGenConfFile=${IN}" }, { "type": "constant", "value": "evgenJobOpts=MC12JobOpts-00-10-39_v7.tar.gz" } ], "log": { "dataset": "mc12_valid.185152.Sherpa_CT10_SinglePhotonPt110.evgen.log.e2342_tid01363687_00", "offset": 0, "param_type": "log", "token": "ATLASDATADISK", "type": "template", "value": "log.01363687._${SN}.job.log.tgz" }, "nEvents": 1000, "nEventsPerJob": 50, "processingType": "evgen", "prodSourceLabel": "managed", "reqID": 1363687, "taskName": "mc12_valid.185152.Sherpa_CT10_SinglePhotonPt110.evgen.e2342", "taskPriority": 900, "taskType": "prod", "transHome": "AtlasProduction-17.2.11.3", "transPath": "Generate_trf.py", "transUses": "Atlas-17.2.11", "userName": "sacha.vaniachine@@cern.ch", "vo": "atlas", "workingGroup": "AP_Validation" }</data>
+    </node>
+    <node id="exit">
+	<data key="state">disarmed</data>
+	<data key="tag">exit</data>
+	<data key="comment">Exit point/null task</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">exit task parameters</data>
+    </node>
+
+    <!-- EDGES - DATASETS -->
+    <edge source="entry" target="evgen">
+        <data key="id">1</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">Input</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="evgen" target="exit">
+        <data key="id">2</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">Event generation result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+  </graph>
+</graphml>

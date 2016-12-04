@@ -1,0 +1,145 @@
+import networkx as nx
+import tempfile
+
+f = tempfile.TemporaryFile(dir='/tmp')
+
+s = """<?xml version="1.0" encoding="utf-8"?>
+<!-- THIS IS A SIMPLE TEST TEMPLATE TO VALIDATE BASIC DEVELOPMENT OF THE DEFT PROTOTYPE -->
+<!-- IT CONFORMS TO THE GRAPHML XML SCHEMA -->
+<!-- REVISED IN EARLY OCTOBER 2031 -->
+<graphml
+	xmlns="http://graphml.graphdrawing.org/xmlns"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+
+  <key attr.name="id"		attr.type="string"	for="edge"	id="id"	/>
+  <key attr.name="state"	attr.type="string"	for="edge"	id="state"	/>
+  <key attr.name="name"		attr.type="string"	for="edge"	id="name"	/>
+  <key attr.name="format"	attr.type="string"	for="edge"	id="format"	/>
+  <key attr.name="flavor"	attr.type="string"	for="edge"	id="flavor"	/>
+  <key attr.name="comment"	attr.type="string"	for="edge"	id="comment"	/>
+  <key attr.name="meta"		attr.type="string"	for="edge"	id="meta"	/>
+
+  <key attr.name="state"	attr.type="string"	for="node"	id="state"	/> <!-- both -->
+
+  <key attr.name="name"		attr.type="string"	for="node"	id="name"	/> <!-- meta -->
+  <key attr.name="template"	attr.type="string"	for="node"	id="template"	/> <!-- meta -->
+  <key attr.name="vo"		attr.type="string"	for="node"	id="vo"		/> <!-- meta -->
+  <key attr.name="wg"		attr.type="string"	for="node"	id="wg"		/> <!-- meta -->
+  <key attr.name="cloud"	attr.type="string"	for="node"	id="cloud"	/> <!-- meta -->
+  <key attr.name="site"		attr.type="string"	for="node"	id="site"	/> <!-- meta -->
+  <key attr.name="requestor"	attr.type="string"	for="node"	id="requestor"	/> <!-- meta -->
+  <key attr.name="manager"	attr.type="string"	for="node"	id="manager"	/> <!-- meta -->
+
+  <key attr.name="tag"		attr.type="string"	for="node"	id="tag"	/> <!-- task -->
+  <key attr.name="comment"	attr.type="string"	for="node"	id="comment"	/> <!-- task -->
+  <key attr.name="meta"		attr.type="string"	for="node"	id="meta"	/> <!-- task -->
+  <key attr.name="param"	attr.type="string"	for="node"	id="param"	/> <!-- task -->
+
+
+
+  <key attr.name="last_update"	attr.type="string"	for="node"	id="last_update"/>
+
+  <graph id="simulation template 1" edgedefault="directed">
+    <node id="entry">
+	<data key="name">Topology Test</data>
+	<data key="state">template</data>
+	<data key="comment">Example of a new template</data>
+	<data key="vo">ATLAS</data>
+	<data key="wg">Mu</data>
+	<data key="cloud">US</data>
+	<data key="site">FNAL</data>
+	<data key="param">task parameters p1 p2 p3 p4</data>
+	<data key="requestor">A.Klimentov</data>
+	<data key="manager">W.Ehrenfeld</data>
+	<data key="template">0</data>
+	<data key="tag">entry</data>
+    </node>
+    <node id="evgen">
+	<data key="state">disarmed</data>
+	<data key="tag">e1119</data>
+	<data key="comment">Event Generation</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">task parameters</data>
+    </node>
+
+    <node id="Simulation 1">
+	<data key="state">template</data>
+	<data key="tag">s3201</data>
+	<data key="comment">Simulation 1</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">task parameters</data>
+    </node>
+
+    <node id="Reconstruction 1">
+	<data key="state">disarmed</data>
+	<data key="tag">r1_1111</data>
+	<data key="comment">Reco 1</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">task parameters</data>
+    </node>
+
+    <node id="exit">
+	<data key="state">disarmed</data>
+	<data key="tag">exit</data>
+	<data key="comment">Exit point/null task</data>
+	<data key="meta">meta-task id</data>
+	<data key="param">task parameters</data>
+    </node>
+
+
+    <edge source="entry" target="evgen">
+        <data key="id">334</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">Input</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="evgen" target="Simulation 1">
+        <data key="id">1233</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">Event generation result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">not ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="Simulation 1" target="Reconstruction 1">
+        <data key="id">1322</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">First result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="Reconstruction 1" target="exit">
+        <data key="id">162</data>
+	<data key="name">Dataset Name</data>
+	<data key="comment">Final result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+  </graph>
+</graphml>
+"""
+
+
+
+#print s
+
+f.write(s)
+f.seek(0)
+
+g = nx.read_graphml(f)
+f.close()
+print(g.nodes())

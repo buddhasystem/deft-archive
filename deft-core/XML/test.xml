@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key attr.name="id" attr.type="int" for="edge" id="d19" />
+  <key attr.name="flavor" attr.type="string" for="edge" id="d18" />
+  <key attr.name="format" attr.type="string" for="edge" id="d17" />
+  <key attr.name="name" attr.type="string" for="edge" id="d16" />
+  <key attr.name="meta" attr.type="int" for="edge" id="d15" />
+  <key attr.name="state" attr.type="string" for="edge" id="d14" />
+  <key attr.name="comment" attr.type="string" for="edge" id="d13" />
+  <key attr.name="cloud" attr.type="string" for="node" id="d12" />
+  <key attr.name="template" attr.type="string" for="node" id="d11" />
+  <key attr.name="meta" attr.type="int" for="node" id="d10" />
+  <key attr.name="tag" attr.type="string" for="node" id="d9" />
+  <key attr.name="manager" attr.type="string" for="node" id="d8" />
+  <key attr.name="requestor" attr.type="string" for="node" id="d7" />
+  <key attr.name="vo" attr.type="string" for="node" id="d6" />
+  <key attr.name="param" attr.type="string" for="node" id="d5" />
+  <key attr.name="site" attr.type="string" for="node" id="d4" />
+  <key attr.name="state" attr.type="string" for="node" id="d3" />
+  <key attr.name="name" attr.type="string" for="node" id="d2" />
+  <key attr.name="wg" attr.type="string" for="node" id="d1" />
+  <key attr.name="comment" attr.type="string" for="node" id="d0" />
+  <graph edgedefault="directed">
+    <node id="1997">
+      <data key="d0">TRF Test</data>
+      <data key="d1">Top</data>
+      <data key="d2">Other TRF</data>
+      <data key="d3">template</data>
+      <data key="d4">ANL</data>
+      <data key="d5">task parameters p1 p2 p3 p4</data>
+      <data key="d6">ATLAS</data>
+      <data key="d7">M.Potekhin</data>
+      <data key="d8">N.Ozturk</data>
+      <data key="d9">entry</data>
+      <data key="d10">1997</data>
+      <data key="d11">0</data>
+      <data key="d12">US</data>
+    </node>
+    <node id="1998">
+      <data key="d0">Event Generation</data>
+      <data key="d3">template</data>
+      <data key="d9">e1119</data>
+      <data key="d10">1997</data>
+      <data key="d5">task parameters</data>
+    </node>
+    <node id="1999">
+      <data key="d0">Simulation 1</data>
+      <data key="d3">template</data>
+      <data key="d9">s3201</data>
+      <data key="d10">1997</data>
+      <data key="d5">task parameters</data>
+    </node>
+    <node id="2000">
+      <data key="d0">Simulation 2</data>
+      <data key="d3">template</data>
+      <data key="d9">s2_1111</data>
+      <data key="d10">1997</data>
+      <data key="d5">task parameters</data>
+    </node>
+    <node id="2001">
+      <data key="d0">Reco 1</data>
+      <data key="d3">disarmed</data>
+      <data key="d9">r1_1111</data>
+      <data key="d10">1997</data>
+      <data key="d5">task parameters</data>
+    </node>
+    <node id="2002">
+      <data key="d0">Exit point/null task</data>
+      <data key="d3">disarmed</data>
+      <data key="d9">exit</data>
+      <data key="d10">1997</data>
+      <data key="d5">task parameters</data>
+    </node>
+    <edge source="1997" target="1998">
+      <data key="d13">Input</data>
+      <data key="d14">ready</data>
+      <data key="d15">1997</data>
+      <data key="d16">Dataset Name</data>
+      <data key="d17">XYZ</data>
+      <data key="d18">normal</data>
+      <data key="d19">2003</data>
+    </edge>
+    <edge source="1998" target="1999">
+      <data key="d13">Event generation result</data>
+      <data key="d14">not ready</data>
+      <data key="d15">1997</data>
+      <data key="d16">Dataset Name</data>
+      <data key="d17">XYZ</data>
+      <data key="d18">normal</data>
+      <data key="d19">2004</data>
+    </edge>
+    <edge source="1999" target="2000">
+      <data key="d13">First result</data>
+      <data key="d14">ready</data>
+      <data key="d15">1997</data>
+      <data key="d16">Dataset Name</data>
+      <data key="d17">XYZ</data>
+      <data key="d18">normal</data>
+      <data key="d19">2005</data>
+    </edge>
+    <edge source="2000" target="2001">
+      <data key="d13">Some simu 2 result</data>
+      <data key="d14">ready</data>
+      <data key="d15">1997</data>
+      <data key="d16">Dataset Name</data>
+      <data key="d17">XYZ</data>
+      <data key="d18">normal</data>
+      <data key="d19">2006</data>
+    </edge>
+    <edge source="2001" target="2002">
+      <data key="d13">Final result</data>
+      <data key="d14">ready</data>
+      <data key="d15">1997</data>
+      <data key="d16">Dataset Name</data>
+      <data key="d17">XYZ</data>
+      <data key="d18">normal</data>
+      <data key="d19">2007</data>
+    </edge>
+  </graph>
+</graphml>

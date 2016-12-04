@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- THIS IS A SIMPLE TEST TEMPLATE TO VALIDATE BASIC DEVELOPMENT OF THE DEFT PROTOTYPE -->
+<!-- IT CONFORMS TO GRAPHML XML SCHEMA AND INCLUDES TWO MOCK SIMULATION STEPS AND ONE RECO -->
+<graphml
+	xmlns="http://graphml.graphdrawing.org/xmlns"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+
+  <key attr.name="id"		attr.type="string"	for="edge"	id="id"	/>
+  <key attr.name="state"	attr.type="string"	for="edge"	id="state"	/>
+  <key attr.name="format"	attr.type="string"	for="edge"	id="format"	/>
+  <key attr.name="flavor"	attr.type="string"	for="edge"	id="flavor"	/>
+  <key attr.name="comment"	attr.type="string"	for="edge"	id="comment"	/>
+  <key attr.name="meta"		attr.type="string"	for="edge"	id="meta"	/>
+
+  <key attr.name="state"	attr.type="string"	for="node"	id="state"	/>
+  <key attr.name="tag"		attr.type="string"	for="node"	id="tag"	/>
+  <key attr.name="comment"	attr.type="string"	for="node"	id="comment"	/>
+  <key attr.name="meta"		attr.type="string"	for="node"	id="meta"	/>
+
+
+  <key attr.name="last_update"	attr.type="string"	for="node"	id="last_update"/>
+
+  <graph id="simulation template 1" edgedefault="directed">
+    <node id="entry">
+	<data key="state">disarmed</data>
+	<data key="tag">entry</data>
+	<data key="comment">Entry point/null task</data>
+	<data key="meta">meta-task id</data>
+    </node>
+    <node id="evgen">
+	<data key="state">armed</data>
+	<data key="tag">e1119</data>
+	<data key="comment">Event Generation</data>
+	<data key="meta">meta-task id</data>
+    </node>
+
+    <node id="Simulation 1">
+	<data key="state">disarmed</data>
+	<data key="tag">s3201</data>
+	<data key="comment">Simulation 1</data>
+	<data key="meta">meta-task id</data>
+    </node>
+
+    <node id="Simulation 2">
+	<data key="state">disarmed</data>
+	<data key="tag">s2_1111</data>
+	<data key="comment">Simulation 2</data>
+	<data key="meta">meta-task id</data>
+    </node>
+
+    <node id="Reconstruction 1">
+	<data key="state">disarmed</data>
+	<data key="tag">r1_1111</data>
+	<data key="comment">Reco 1</data>
+	<data key="meta">meta-task id</data>
+    </node>
+
+    <node id="exit">
+	<data key="state">disarmed</data>
+	<data key="tag">exit</data>
+	<data key="comment">Exit point/null task</data>
+	<data key="meta">meta-task id</data>
+    </node>
+
+
+    <edge source="entry" target="evgen">
+        <data key="id">Initial event generation data</data>
+	<data key="comment">Input</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="evgen" target="Simulation 1">
+        <data key="id">13</data>
+	<data key="comment">Event generation result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">not ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="Simulation 1" target="Simulation 2">
+        <data key="id">14</data>
+	<data key="comment">First result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="Simulation 2" target="Reconstruction 1">
+        <data key="id">15</data>
+	<data key="comment">Some simu 2 result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+
+    <edge source="Reconstruction 1" target="exit">
+        <data key="id">16</data>
+	<data key="comment">Final result</data>
+	<data key="format">XYZ</data>
+	<data key="flavor">normal</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+  </graph>
+</graphml>

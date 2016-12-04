@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEFT/JEDI INTEGRATION TEST. USING TASK 110 FROM DEFT_TASK ON ADCR AS AN EXAMPLE. -->
+<!-- IT CONFORMS TO THE GRAPHML XML SCHEMA -->
+
+
+<!-- DEVELOPER'S NOTES
+
+1)Example of the dataset name suffix: _tid01363687_00
+APPARENTLY WE NEED TO USE TASK ID TO AUTOMATE IT -->
+
+
+
+<graphml
+	xmlns="http://graphml.graphdrawing.org/xmlns"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+	http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- *********************************** DECLARATIONS **************************************** -->
+<!-- DATASET ATTRIBUTES -->
+  <key attr.name="id"		attr.type="string"	for="edge"	id="id"			/>
+  <key attr.name="state"	attr.type="string"	for="edge"	id="state"		/>
+  <key attr.name="name"		attr.type="string"	for="edge"	id="name"		/>
+  <key attr.name="format"	attr.type="string"	for="edge"	id="format"		/>
+  <key attr.name="flavor"	attr.type="string"	for="edge"	id="flavor"		/>
+  <key attr.name="comment"	attr.type="string"	for="edge"	id="comment"		/>
+  <key attr.name="meta"		attr.type="string"	for="edge"	id="meta"		/>
+  <key attr.name="offset"	attr.type="string"	for="edge"	id="offset"		/>
+  <key attr.name="token"	attr.type="string"	for="edge"	id="token"		/>
+<!-- END DATASET ATTRIBUTES -->
+
+
+<!-- META-TASK ATTRIBUTES -->
+  <key attr.name="template"	attr.type="string"	for="node"	id="template"		/>
+  <key attr.name="vo"		attr.type="string"	for="node"	id="vo"			/>
+  <key attr.name="wg"		attr.type="string"	for="node"	id="wg"			/>
+  <key attr.name="cloud"	attr.type="string"	for="node"	id="cloud"		/>
+  <key attr.name="site"		attr.type="string"	for="node"	id="site"		/>
+  <key attr.name="requestor"	attr.type="string"	for="node"	id="requestor"		/>
+  <key attr.name="manager"	attr.type="string"	for="node"	id="manager"		/>
+  <key attr.name="issue"	attr.type="string"	for="node"	id="issue"		/>
+<!-- END META-TASK ATTRIBUTES -->
+
+
+<!-- TASK ATTRIBUTES -->
+  <key attr.name="tag"		attr.type="string"	for="node"	id="tag"		/>
+  <key attr.name="meta"		attr.type="string"	for="node"	id="meta"		/>
+  <key attr.name="param"	attr.type="string"	for="node"	id="param"		/>
+  <key attr.name="architecture"	attr.type="string"	for="node"	id="architecture"	/>
+  <key attr.name="corecount"	attr.type="string"	for="node"	id="corecount"		/>
+  <key attr.name="runnum"	attr.type="string"	for="node"	id="runnum"		/>
+  <key attr.name="processingtype"	attr.type="string"	for="node"	id="processingtype"	/>
+  <key attr.name="tasktype"	attr.type="string"	for="node"	id="tasktype"		/>
+  <key attr.name="transhome"	attr.type="string"	for="node"	id="transhome"		/>
+  <key attr.name="transpath"	attr.type="string"	for="node"	id="transpath"		/>
+  <key attr.name="transuses"	attr.type="string"	for="node"	id="transuses"		/>
+  <key attr.name="username"	attr.type="string"	for="node"	id="username"		/>
+<!-- END TASK ATTRIBUTES -->
+
+
+<!-- SHARED ATTRIBUTES -->
+  <key attr.name="name"		attr.type="string"	for="node"	id="name"		/>
+  <key attr.name="state"	attr.type="string"	for="node"	id="state"		/>
+  <key attr.name="comment"	attr.type="string"	for="node"	id="comment"		/>
+  <key attr.name="prodsourcelabel"	attr.type="string"	for="node"	id="prodsourcelabel"	/>
+<!-- END SHARED ATTRIBUTES -->
+<!-- ********************************* END DECLARATIONS ************************************** -->
+
+
+  <graph id="real task template" edgedefault="directed">
+    <node id="entry">
+	<data key="name">DEFT/JEDI Integration Test</data>
+	<data key="state">template</data>
+	<data key="comment">Using ADCR TASK 110 as an example</data>
+	<data key="vo">atlas</data>
+	<data key="wg">AP_Validation</data>
+	<data key="cloud">CERN</data>
+	<data key="site">test</data>
+	<data key="param">entry task parameters</data>
+	<data key="requestor">M.Potekhin</data>
+	<data key="manager">T.Maeno</data>
+	<data key="template">0</data>
+	<data key="tag">entry</data>
+	<data key="issue">PRODSYS-72</data>
+	<data key="processingtype"> </data>
+	<data key="tasktype"> </data>
+	<data key="transhome"> </data>
+	<data key="transpath"> </data>
+	<data key="transuses"> </data>
+	<data key="runnum">0</data>
+	<data key="corecount">0</data>
+	<data key="username">potekhin</data>
+	<data key="prodsourcelabel">managed</data>
+	<data key="param"></data>
+    </node>
+    <node id="evgen">
+	<data key="name">mc12_valid.${RUNNUM}.Sherpa_CT10_SinglePhotonPt110.evgen.e2342</data>
+	<data key="state">template</data>
+	<data key="tag">e2342</data>
+	<data key="comment">Event Generation</data>
+	<data key="meta">meta-task id</data>
+	<data key="wg">AP_Validation</data>
+	<data key="cloud">CERN</data>
+	<data key="site">test</data>
+	<data key="vo">atlas</data>
+	<data key="architecture">i686-slc5-gcc43-opt</data>
+	<data key="corecount">1</data>
+	<data key="prodsourcelabel">managed</data>
+	<data key="processingtype">evgen</data>
+	<data key="tasktype">prod</data>
+	<data key="transhome">AtlasProduction-17.2.11.3</data>
+	<data key="transpath">Generate_trf.py</data>
+	<data key="transuses">Atlas-17.2.11</data>
+	<data key="runnum">185152</data>
+	<data key="username">potekhin</data>
+	<data key="issue">PRODSYS-72</data>
+	<data key="param">
+	{
+	"jobParameters":
+	[ { "type": "constant", "value": "ecmEnergy=8000" },
+		{ "offset": 0, "param_type": "number", "type": "template", "value": "firstEvent=${FIRSTEVENT}" },
+		{ "offset": 0, "param_type": "number", "type": "template", "value": "randomSeed=${RNDMSEED}" },
+		{ "type": "constant", "value": "jobConfig=MC12JobOptions/MC12.${RUNNUM}.Sherpa_CT10_SinglePhotonPt110.py" },
+		{ "type": "constant", "value": "evgenJobOpts=MC12JobOpts-00-10-39_v7.tar.gz" } ],
+	"nEvents": 1000,
+	"nEventsPerJob": 50,
+	"taskPriority": 900}</data>
+    </node>
+    <node id="exit">
+	<data key="name">DEFT/JEDI Integration Test - EXIT</data>
+	<data key="state">template</data>
+	<data key="comment">Using ADCR TASK 110 as an example</data>
+	<data key="vo">atlas</data>
+	<data key="wg">AP_Validation</data>
+	<data key="cloud">CERN</data>
+	<data key="site">test</data>
+	<data key="param">entry task parameters</data>
+	<data key="requestor">M.Potekhin</data>
+	<data key="manager">T.Maeno</data>
+	<data key="template">0</data>
+	<data key="tag">exit</data>
+	<data key="issue">PRODSYS-72</data>
+	<data key="prodsourcelabel">managed</data>
+	<data key="processingtype"> </data>
+	<data key="tasktype"> </data>
+	<data key="transhome"> </data>
+	<data key="transpath"> </data>
+	<data key="transuses"> </data>
+	<data key="runnum">0</data>
+	<data key="corecount">0</data>
+	<data key="username">potekhin</data>
+	<data key="param"></data>
+    </node>
+
+    <!-- EDGES - DATASETS -->
+    <edge source="entry" target="evgen">
+        <data key="id">dataset 1 id</data>
+	<data key="name">group.phys-gener.sherpa010400.${RUNNUM}.Sherpa_SinglePhotonPt110_8TeV.TXT.mc12_v1/</data>
+	<data key="offset">0</data>
+	<data key="token">ATLASDATADISK</data>
+	<data key="template">inputGenConfFile=${IN}</data>
+	<data key="comment">Input</data>
+	<data key="format"> </data>
+	<data key="flavor"> </data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="evgen" target="exit">
+        <data key="id">dataset 2 id</data>
+	<data key="name">mc12_valid.${RUNNUM}.Sherpa_CT10_SinglePhotonPt110.evgen.EVNT.e2342_tid${TID}_00.pool.root</data>
+	<data key="offset">0</data>
+	<data key="token">ATLASDATADISK</data>
+	<data key="template">outputEVNTFile=EVNT.${TID}._${SN}.pool.root</data>
+	<data key="comment">Event generation result</data>
+	<data key="format">root</data>
+	<data key="flavor">pool</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+
+    <edge source="evgen" target="exit">
+        <data key="id">dataset 3 id</data>
+	<data key="name">mc12_valid.${RUNNUM}.Sherpa_CT10_SinglePhotonPt110.evgen.log.e2342_tid${TID}_00</data>
+	<data key="offset">0</data>
+	<data key="token">ATLASDATADISK</data>
+	<data key="template">log.${TID}._${SN}.job.log.tgz</data>
+	<data key="comment">Event generation result</data>
+	<data key="format">gz</data>
+	<data key="flavor">log</data>
+        <data key="state">ready</data>
+	<data key="meta">meta-task id</data>
+    </edge>
+  </graph>
+</graphml>
