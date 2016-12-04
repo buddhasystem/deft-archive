@@ -1,0 +1,27 @@
+{% extends "deft_test_base_1.html" %}
+
+
+{% block content %} 
+<input type="submit" value="Copy Selected to the Edit Buffer">
+
+<hr/>
+<table>
+<tr><th>ID</th><th>Name</th><th>Author</th><th>WG</th><th>Created</td><th>Select</th></tr>
+
+{% for t in templates %}
+<tr>
+<td><a href="#">{{ t.tmpl_id }}</a></td>
+<td>{{ t.tmpl_name }}</td>
+<td><a href="#">{{ t.tmpl_author }}</a></td>
+<td>{{ t.tmpl_pwg }}</td>
+<td>{{ t.meta_created_ts }}</td>
+<td><input type="radio" name="group1" value="Select"/></td></tr>
+{% endfor %}
+
+
+</table>
+
+       
+
+{% endblock %}
+  

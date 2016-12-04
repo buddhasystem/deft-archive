@@ -1,0 +1,47 @@
+.top-subbar {
+  overflow: hidden;
+  height: 30px;
+  width: 100%;
+  line-height: 30px;
+  top: -30px;
+  position: relative;
+  background: #DDDDDD;
+  margin-bottom: 1.875em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.left-menu {
+  overflow: hidden;
+  height: auto;
+  width: 10em;
+  line-height: 30px;
+  top: 100px;
+  position: absolute;
+  background: #DDDDDD;
+  margin-bottom: 1.875em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.left-menu-title {
+    font-size:100%;
+    font-weight:bold;
+}
+.left-menu-item {
+    font-size:95%;
+}
+.left-menu-subitem {
+    font-size:85%;
+}
+
+a {
+text-decoration: underline;
+}
+
+.row {
+  width: 100%;
+  margin-left: 10em;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}

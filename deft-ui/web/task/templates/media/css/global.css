@@ -1,0 +1,153 @@
+/*Example additional styles*/
+.alignRight { text-align:right; }
+
+td.numericTD { text-align:right; font-size:9pt; vertical-align:bottom; }
+td.taskNameTd { vertical-align:top; }
+
+.wrapColumn { 
+    font-size:8pt;
+    white-space: nowrap; 
+    position:relative;
+    top:2px;
+    left:0px;
+    overflow:visible; 
+}
+
+.status { width:100%; color:#000000; font-weight:bold; text-align:center }
+.NotCompleted { border:1px #1e4a68 solid; background-color:#BB72F3; }
+.Successfull { border:1px #1e4a68 solid; background-color:#59D118; }
+.Failed { border:1px #1e4a68 solid; background-color:#C50000; }
+.Running { border:1px #1e4a68 solid; background-color:#3072F3; }
+.Unknown { border:1px #1e4a68 solid; background-color:#C2BDDD; }
+.Pending { border:1px #1e4a68 solid; background-color:#FF9900; }
+
+.Status-defined {border:1px #1e4a68 solid; background-color:#727272;}
+.Status-activated {border:1px #1e4a68 solid; background-color:#727272;}
+.Status-running {border:1px #1e4a68 solid; background-color:#727272;}
+.Status-holding {border:1px #1e4a68 solid; background-color:#727272;}
+.Status-finished {border:1px #1e4a68 solid; background-color:#59D118;}
+.Status-failed {border:1px #1e4a68 solid; color:#ffffff; background-color:#c50000;}
+.Status-cancelled {border:1px #1e4a68 solid; background-color:yellow;}
+.Status-others {border:1px #1e4a68 solid; background-color:#727272;}
+
+.display a.noJobsClick {}
+.display a.noDefiClick {color:#727272;}
+.display a.noActiClick {color:#727272;}
+.display a.noRunnClick {color:#727272;}
+.display a.noHoldClick {color:#727272;}
+.display a.noFiniClick {color:#59D118;}
+.display a.noFailClick {color:#c50000;}
+.display a.noCancClick {color:#ffc000;}
+.display a.noOtheClick {color:#727272;}
+.display a.tmIdClick   {color:#0c0c0c;}
+
+input.resubmitButton { width:auto; font-size:8pt; height:26px; }
+
+.taskname_toggle {
+    background-color:#eeeeee;
+    border:0px solid #aaaaaa;
+    padding-left:1px;
+    padding-right:1px;
+}
+#showTaskName_toggle { position:absolute;top:2px;left:260px;}
+#showTaskName_toggle span { margin:0; }
+
+#resubmitTable { display:none; }
+#resubmitTableContainer { width:880px; height:400px; }
+
+.lkfw_tooltip_tblHeaders { background-color:white;border:1px gray solid; }
+.lkfw_tooltip_predefFiltersMenu { background-color:white;border:1px #3383bb solid; border-bottom-width:3px;width:150px; }
+.filterLabel { cursor:default; }
+
+/*!
+* jquery.fixedHeaderTable. The jQuery fixedHeaderTable plugin
+*
+* Copyright (c) 2011 Mark Malek
+* http://fixedheadertable.com
+*
+* Licensed under MIT
+* http://www.opensource.org/licenses/mit-license.php
+* 
+* http://docs.jquery.com/Plugins/Authoring
+* jQuery authoring guidelines
+*
+* Launch  : October 2009
+* Version : 1.3
+* Released: May 9th, 2011
+*
+* 
+* all CSS sizing (width,height) is done in pixels (px)
+*/
+
+/* @group Reset */
+
+.fht-table,
+.fht-table thead,
+.fht-table tfoot,
+.fht-table tbody,
+.fht-table tr,
+.fht-table th,
+.fht-table td {
+	/* position */
+    margin: 0;
+    
+    /* size */
+	padding: 0;
+
+	/* text */
+	font-size: 100%;
+	font: inherit;
+	vertical-align: top;
+	}
+
+.fht-table {
+	/* appearance */
+    border-collapse: collapse;
+    border-spacing: 0;
+	}
+
+/* @end */
+
+/* @group Content */
+
+.fht-table-wrapper,
+.fht-table-wrapper .fht-thead,
+.fht-table-wrapper .fht-tfoot,
+.fht-table-wrapper .fht-fixed-column .fht-tbody,
+.fht-table-wrapper .fht-fixed-body .fht-tbody,
+.fht-table-wrapper .fht-tbody {
+	/* appearance */
+	overflow: hidden;
+	
+	/* position */
+	position: relative;
+	}
+
+	.fht-table-wrapper .fht-fixed-body .fht-tbody,
+	.fht-table-wrapper .fht-tbody {
+		/* appearance */
+	    overflow: auto;
+		}
+
+		.fht-table-wrapper .fht-table .fht-cell {
+			/* appearance */
+			overflow: hidden;
+			
+			/* size */
+		    height: 1px;
+			}
+	
+	.fht-table-wrapper .fht-fixed-column,
+	.fht-table-wrapper .fht-fixed-body {
+	    /* position */
+	    top: 0;
+	    left: 0;
+	    position: absolute;
+	    }
+	    
+	.fht-table-wrapper .fht-fixed-column {
+	    /* position */
+	    z-index: 1;
+	    }
+
+/* @end */

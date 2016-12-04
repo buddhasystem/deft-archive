@@ -1,0 +1,36 @@
+{% extends "deft_test_base_1.html" %}
+
+  
+{% block content %} 
+<h4>Meta-Task Monitor</h4>
+<input type="submit" value="Copy Selected to the Edit Buffer">
+
+<hr/>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Template</th>
+<th>Status</th>
+<th>Created</td>
+<th>Updated</th>
+<th>Select</th>
+</tr>
+
+{% for m in metas %}
+<tr>
+<td><a href="#">{{ m.meta_id }}</a></td>
+<td>{{ m.meta_name }}</td>
+<td><a href="#">{{ m.meta_template }}</a></td>
+<td>{{ m.meta_state }}</td>
+<td>{{ m.meta_req_ts }}</td>
+<td>{{ m.meta_upd_ts }}</td>
+<td><input type="radio" name="group1" value="Select"/></td></tr>
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}

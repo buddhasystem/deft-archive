@@ -1,0 +1,14 @@
+{% extends "prodtask/_index.html" %}
+{% load url from future %}
+
+{% block bl_page_title %}JEDI Monitoring{% endblock %}
+
+{% block bl_content_body %}Welcome to JEDI monitoring prototype portal{% endblock %}
+
+{% block top_menu_6 %}
+          <a href="#">Help</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'jedi:about' %}">About</a></li>
+          </ul>
+{% endblock %}
+

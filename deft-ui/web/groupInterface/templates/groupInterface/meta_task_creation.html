@@ -1,0 +1,44 @@
+{% extends "_base_grid.html" %}
+{% block urlprefix %}{{ prefix }}{% endblock %}
+{% block title %}User Interface{% endblock %}
+{% block body %}
+{% comment %}
+<p>hi there!
+    <ul class="column left">
+        <li><a href="{{ prefix }}/">index page</a></li>
+        <li><a href="{{ prefix }}/list_jobs/" target="_blank">list PanDA jobs</a></li>
+        <li><a href="{{ prefix }}/schedconfig/" target="_blank">list PanDA queues</a></li>
+        <li>update_schedconfig table from AGIS</a></li>
+    </ul>
+</p>
+{% endcomment %}
+
+{% if success %}
+    <h3> Metatask added successfully </h3>
+{% endif %}         
+{% if failure %}
+    <h3> Metatask addition failed. Please try again. </h3>
+{% endif %}         
+<form method="POST" action=".">
+    {% csrf_token %}
+    
+    <div class="row">
+      {% if success %}
+          <input type="submit" class="button success" value="Add New MetaTask"
+                 id="create">
+      {% else %}
+          <input type="submit" class="button" value="Add New MetaTask" id="create">
+      {% endif %}
+      <input type="reset" class="button" value="Reset" id="reset">   
+      <p>
+      <p>
+    </div>
+    
+    {% for field in meta_form %}
+        <div class="large-2 columns">
+          {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
+       </div>
+    {% endfor %}
+</form>
+{% endblock %}

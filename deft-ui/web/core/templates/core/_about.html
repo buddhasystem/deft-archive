@@ -1,0 +1,11 @@
+{% extends "core/_index.html" %}
+{% load url from future %}
+
+{% block bl_subtitle %}
+{% if title %}{{ title }}{% else %}About{% endif %}
+{% endblock %}
+
+{% block bl_content_body %}
+About BigPandaMon project text
+{% endblock %}
+

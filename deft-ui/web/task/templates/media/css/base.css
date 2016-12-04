@@ -1,0 +1,7 @@
+/* Import other styles */
+@import url('/templates/hbrowse2-common/css/custom-theme/jquery-ui-1.8.4.custom.css');
+@import url('/templates/hbrowse2-common/css/multiselect.css');
+@import url('/templates/hbrowse2-common/css/table.css');
+@import url('/templates/hbrowse2-common/css/page.css');
+@import url('/templates/hbrowse2-common/css/layout.css');
+@import url('global.css');

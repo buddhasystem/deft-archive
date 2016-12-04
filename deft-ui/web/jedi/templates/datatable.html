@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block title %} {% if title %} {{ title }} {% else %} Datatable {% endif %} {% endblock %}
+
+{% block styles %}
+	<style type="text/css" title="currentStyle">
+
+        @import "/static/css/jquery.dataTables_themeroller.css";
+
+	</style>
+{% endblock %}
+
+{% block base_scripts %}
+{{ block.super }}
+<script type="text/javascript">
+    function remap_data( data )
+    {
+        var dData = {}
+        for(var i in data)
+        {
+            if( data[i]['name'] in dData )
+            {
+                dData[data[i]['name']] = array.concat( dData['name'], data[i]['value'] );
+            }
+            else
+            {
+                dData[data[i]['name']] = data[i]['value'];
+            }
+        }
+        var nData = []
+        var field_list = []
+        var order_list = []
+        for(var i = 0; i< dData['iColumns']; i++)
+        {
+            var fname = dData['mDataProp_'+i]
+            field_list.push(fname);
+
+            if( dData['sSearch_'+i] != '')
+                nData.push({'name': fname, 'value': dData['sSearch_'+i] });
+        }
+        for(var i = 0; i< dData['iSortingCols']; i++)
+        {
+            var fname = field_list[dData['iSortCol_'+i]]
+            order_list.push('['+fname+':'+dData['sSortDir_'+i]+']');
+        }
+
+        nData.push({'name': 'fields', 'value': field_list.join(',') });
+        nData.push({'name': 'orders', 'value': order_list.join(',') });
+
+        nData.push({'name': 'echo', 'value': dData['sEcho'] });
+        nData.push({'name': 'range', 'value': dData['iDisplayStart']+':'+(dData['iDisplayStart']+dData['iDisplayLength'])});
+
+        nData.push({'name': 'global_filter', 'value': dData['sSearch'] });
+
+        return nData;
+    }
+</script>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+
+    {% block entry_point %}
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+        var oTable = $('#targettable').dataTable(
+        {% block table_options %}
+        {
+            "sPaginationType"   : "full_numbers",
+            "aLengthMenu"       : [ [10, 50, 100, 500, -1], [10, 50, 100, 500, "All"] ],
+            "iDisplayLength"    : 10,
+            "sDom"              : '<"H"lfr><t><"F"ip>',
+            "bProcessing"       : true,
+            "bServerSide"       : true,
+            "sAjaxSource"       : "{% url URL %}",
+
+            "bScrollCollapse"   : true,
+            "sScrollX"          : "100%",
+            "bJQueryUI"         : true,
+
+
+            "fnServerData": function ( sSource, aoData, fnCallback, oSettings ) {
+                          oSettings.jqXHR = $.ajax( {
+                            "dataType": "json",
+                            "type": "GET",
+                            "url": sSource,
+                            "data": remap_data(aoData),
+                            "success": function (d,x,r) { return fnCallback( d, x ,r ); }
+                          } );
+                        },
+
+            "aoColumns":
+            {% block table_fields %}
+            [
+            {% for f in fields %}
+                {
+                    {% if row_type %}
+                        {% if row_type == "object" %}
+                            {% if f.tname %} "mData"    : "{{f.tname}}", {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    {% if f.display_name %} "sTitle"    : "{{f.display_name}}", {% endif %}
+                    {% if f.sortable %} "bSortable"    : {{f.sortable}}, {% endif %}
+                    {% if f.searchable %} "bSearchable"    : {{f.searchable}}, {% endif %}
+                    {% if f.width %} "sWidth"    : "{{f.width}}", {% endif %}
+                },
+            {% endfor %}
+            ]
+            {% endblock %}
+        }
+        {% endblock %}
+        );
+
+    var oSettings = oTable.fnSettings();
+    var asInitVals = new Array();
+
+	$("thead th").addClass('col_titles');
+
+	$("thead").prepend('<tr class="search"></tr>');
+
+    $(".col_titles").each( function () {
+        if( oSettings.aoColumns[ $(".col_titles").index(this) ].bSearchable == true )
+        	$(".search").append('<th  aling="center"><input ind="'+$(".col_titles").index(this)+'"type="text" class="search_init"></input></th>');
+        else
+        	$(".search").append('<th  aling="center"></th>');
+    }
+
+    );
+
+    $("thead input").keyup( function () {
+        /* Filter on the column (the index) of this element */
+        oTable.fnFilter( this.value, $(this).attr('ind') );
+    } );
+
+
+    $("thead input").each( function (i) {
+        asInitVals[i] = this.value;
+    } );
+
+    $("thead input").focus( function () {
+        if ( this.className == "search_init" )
+        {
+            this.className = "";
+            this.value = "";
+        }
+    } );
+
+    $("thead input").blur( function (i) {
+        if ( this.value == "" )
+        {
+            this.className = "search_init";
+            this.value = asInitVals[$("thead input").index(this)];
+        }
+    } );
+
+    } );
+
+    </script>
+    {% endblock %}
+
+{% endblock %}
+
+
+{% block content_title %}
+<h2>{% if title %} {{ title }} {% else %} Datatable {% endif %}</h2>
+{% endblock %}
+
+
+{% block content_body %}
+    <table id="targettable" width="100%">
+    </table>
+{% endblock %}
+

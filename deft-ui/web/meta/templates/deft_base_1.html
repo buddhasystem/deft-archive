@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{{ title }}</title>
+
+  <link rel="stylesheet" href="{{ static }}/normalize.css">
+  <link rel="stylesheet" href="{{ static }}/foundation.css">
+
+  <script src="custom.modernizr.js"></script>
+
+</head>
+<body>
+
+
+<!-- Header and Nav -->
+  
+  <div class="row">
+    <div class="large-3 columns">
+      <!-- Too much hassle to include images for now (firewalls etc) -->
+      <!-- h1><img src="/static/deft/deft_banner_1.jpg"/></h1 -->
+      <h3>DEFT</h3>
+      <h5>ProdSys2</h5>
+      
+    </div>
+    <div class="large-9 columns">
+      <ul class="inline-list right">
+        <li><a href="#">JEDI</a></li>
+        <li><a href="#">Panda Monitor</a></li>
+        <li><a href="#">Sites</a></li>
+        <li><a href="#">Clouds</a></li>
+        <li><a href="#">Users</a></li>
+	<li>&nbsp;</li>
+	<li><a href="#">My DEFT</a></li>
+	<li><a href="#">(Logged as {{ my_name }}/Log Off)</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  
+<!-- End Header and Nav on top -->
+
+
+<!-- Main part of the page: navbar and the info panel -->
+<div class="row">
+
+<div class="large-10 push-2 columns">      
+{% block content %}{% endblock %} 
+</div> <!-- info panel -->
+
+<!-- Nav Sidebar -->
+<!-- This is source ordered to be pulled to the left on larger screens -->
+<div class="large-2 pull-10 columns">
+        
+<ul class="side-nav">
+
+	<li><a href="#">MT Template Library</a>
+	<ul><li><a href="#">All</a></li><li><a href="#">My Favorites</a></li>
+	<li><a href="#">Advanced</a></li></ul>
+	</li>
+
+	<li><a href="#">MT Edit Buffer</a>
+	<ul><li><a href="#">Easy Edit 1</a></li><li><a href="#">Easy Edit 2</a></li>
+	<li><a href="#">Advanced</a></li></ul>
+	</li>
+	
+	<li><a href="#">MT Control Center</a>
+	<ul><li><a href="#">All</a></li><li><a href="#">Running</a></li><li><a href="#">Defined</a></li>
+	<li><a href="#">Finished</a></li><li><a href="#">Advanced</a></li></ul>
+	</li>
+
+	<li><a href="#">Task Monitor</a>
+	<ul><li><a href="#">All</a></li><li><a href="#">Running</a></li><li><a href="#">Defined</a></li>
+	<li><a href="#">Finished</a></li><li><a href="#">Advanced</a></li></ul>
+	</li>
+
+</ul>
+</div> <!-- End of side-nav -->
+    
+</div> <!-- "row" contaiing Content plus Navbar -->
+    
+  
+  <!-- Footer -->
+  
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; 2013 DEFT Development Team</p>
+	  <p>{{ server }}:{{ port }}
+        </div>
+        <!-- div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+          </ul>
+        </div -->
+      </div>
+    </div> 
+  </footer>
+  <script>
+  document.write('<script src=js/vendor/' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
+<!-- Use to prototype banner type graphic: -->
+<!-- p><img src="http://placehold.it/320x240&text=Ad" /></p -->

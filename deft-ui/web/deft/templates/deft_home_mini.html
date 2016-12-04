@@ -1,0 +1,50 @@
+{% extends "deft_base_mini.html" %}
+
+  
+{% block content %} 
+<h3>DEFT HOME</h3>
+<hr/>
+<h4>Introduction</h4>
+The DEFT Control Center is the front-end for the new ATLAS Production System, codenames ProdSys2. It's general design parameters, tools and fromats used in creation of this Web application are described in the <a href="https://twiki.cern.ch/twiki/bin/viewauth/AtlasComputing/ProdSys">TWiki pages</a> hosted at CERN, and the links contained therein. ProdSys2 has two major components, DEFT and JEDI. The latter is an automated engine which creates PanDA job definition based on task specifications. Tasks are specified in DEFT, and are in fact elements of a workflow object which is termed Meta-Task in this project.
+
+<h4>The Role of the Production System</h4>
+
+The natural unit of workload that is handled by PanDA (by design) is a single payload job. Defining the exact nature of the payload, source and destination of data and various other parameters that characterize a job is outside of the scope of core PanDA itself.
+
+The ATLAS Production System serves an extremely important role as an extra layer of abstraction, responsible for defining jobs for a large part of the workload handled by PanDA. Jobs are defined in large sets that constitute "tasks", and are formulated to fulfill "task requests". Each task has a number of attributes, set in accordance with a particular request. Each task is typically translated into a large number of jobs. The existing Production System consists of a task request interface, a set of scripts that translate tasks into respective jobs, and a few tools for modification of certain parameters of active tasks.
+
+Individual job definitions in the existing system are created based on the task parameters and remain static for the duration of the task execution. Data pertaining to requests, tasks and jobs reside in the database, and operation of the Production System can be described as transforming one object into another, starting with requirements, formulating tasks and then creating a list of jobs for each task, for execution in PanDA. 
+
+<h4>The New Task Model and other Design Items</h4>
+Models developed for the new the Production System are documented on a separate TaskModel page. Let us note the following initial requirements:
+<ul>
+<li>Creation of the Meta-Task class which so far did not exist in Production System proper but is vital for a proper model and funcitonality</li>
+<li>Possibility to manage more than one datasets as input and/or output of an individual task, potentially in varying formats</li>
+<li>Robust and easily manageable individual and group permissions with regards to specific parts of the request specification and the management of the task, i.e. multi-level auth/auth</li>
+<li>A GUI that represents the meta-task in a readable and interactive manner</li>
+<li> Manual intervention should always be possible, at any stage in the Meta-Task lifecycle, including
+<ul>
+<li>Possibility to actuate steps in the Meta-Task execution without waiting for every single element of the Meta-Task to be defined</li>
+<li>Possibility to add datasets and tasks to a live Meta-Task</li>
+</ul>
+<li>Easy to use template functionality
+<ul>
+<li>a library of standard templates</li>
+<li>capability to clone any meta-task at will, inheriting any number of parameters </li>
+</ul>
+</li>
+</ul>
+
+<h4>Meta-Task as a Crucial Workflow Unit</h4>
+The Meta-Task Model is documented on a separate page describing the Object Model for ProdSys II. Meta-Tasks were absent in ProdSys I, and as more experience was gained in using PanDA in the large-scale tightly managed production environment characteristic of ATLAS, it became clear that supporting the concept and the model of the Meta-Task is crucial for reliable and efficient operation of PanDA. In a nutshell, a Meta-Task is a group of interdependent tasks, which are themselves collections of jobs which consume and produce separate piece of data.
+<br/>
+Requirements formulated for the front-end of the Workflow Management System include:
+<ul>
+<li>template capability, where Meta-Tasks can be easily created using pre-defined templates</li>
+<li>task cloning: an easy way to created a Meta-Task based on a similar obejct previously used, while adjusting some parameters</li>
+<li>operator intervention: the ability of the human operator to start, stop and abort individual tasks in the Meta-Task</li>
+<li>ability to actuate tasks within a Meta-Task which is not yet 100% defined</li>
+</ul>
+
+
+{% endblock %}

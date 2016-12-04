@@ -1,0 +1,19 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * General page setup
+ */
+
+.redtext
+{
+    color: red;
+}
+
+.boldtext
+{
+    font-weight: bold;
+}
+
+.italictext
+{
+    font-style:italic;
+}

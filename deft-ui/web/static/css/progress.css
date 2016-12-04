@@ -1,0 +1,36 @@
+.meter {
+	height: 20px;  /* Can be anything */
+	background: #CCC;
+	border:1px solid black;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	width:40px;
+	float:left;
+	margin:1px 1px 1px 1px;
+}
+
+.meter > span {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+}
+
+.simul > span {
+	background-color: #00CB4E;
+}
+
+.recon > span {
+	background-color: #f1a165;
+}
+
+.merge > span {
+	background-color: #FF4444;
+}
+
+.evgen > span {
+	background-color: #859CE6;
+}
+
+.problem {
+    color: red;
+}

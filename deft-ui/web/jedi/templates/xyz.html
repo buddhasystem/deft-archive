@@ -1,0 +1,74 @@
+{% extends "datatable.html" %}
+{% load url from future %}
+
+{% block styles %}
+{{ block.super }}
+	<style type="text/css" title="currentStyle">
+        @import "/static/css/jedi.css";
+	</style>
+{% endblock %}
+
+{% block table_options %}
+{
+    "sPaginationType"   : "full_numbers",
+    "aLengthMenu"       : [ [10, 50, 100, 500, -1], [10, 50, 100, 500, "All"] ],
+    "iDisplayLength"    : 10,
+    "sDom"              : '<"H"lfr><t><"F"ip>',
+    "bProcessing"       : true,
+    "bServerSide"       : true,
+    "sAjaxSource"       : "{% url URL %}",
+
+    "bScrollCollapse"   : true,
+    "sScrollX"          : "100%",
+    "bJQueryUI"         : true,
+
+    "fnServerData": function ( sSource, aoData, fnCallback, oSettings ) {
+                  oSettings.jqXHR = $.ajax( {
+                    "dataType": "json",
+                    "type": "GET",
+                    "url": sSource,
+                    "data": remap_data(aoData),
+                    "success": function (d,x,r) { return fnCallback( d, x ,r ); }
+                  } );
+                },
+
+    "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+      // Bold the grade for all 'A' grade browsers
+        $('td:eq(0)', nRow).addClass("redtext");
+        $('td:eq(2)', nRow).addClass("boldtext");
+        $('td:eq(3)', nRow).addClass("italictext");
+    },
+
+    "aoColumns": {% block table_fields %} {{ block.super }} {% endblock %}
+}
+{% endblock %}
+
+
+{% block content_body %}
+<div id="container" class="ui-widget-content ui-corner-bottom" style="width:100%;">
+
+<div id="header" style="height:10%; width:100%; background-color:#FFA500; display: table;">
+    <h2 style="display: table-cell; vertical-align: middle; ">Cusomized layout header</h2>
+</div>
+
+<div id="menu" style="background-color:#FFD700; width:10%; float:left; display: table;">
+    <div style="display: table-cell;">
+    <b>Menu</b><br>
+    some<br>
+    menu<br>
+    elements
+    </div>
+</div>
+
+<div id="content" style="width:88%; float:left; padding: 1%; ">
+    This page is based on <a href="{% url 'jedi:datasetcontent_table' %}">this</a> page table meta data. But it uses customized template. It takes 63 lines in template 2 lines in views and 1 line in urls.
+    {{ block.super }}
+    And some text after table.
+</div>
+
+<div class="ui-corner-bottom" id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+    some footer
+</div>
+
+</div>
+{% endblock %}

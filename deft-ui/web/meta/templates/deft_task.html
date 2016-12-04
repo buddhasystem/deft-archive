@@ -1,0 +1,74 @@
+<!-- filename: deft_task.html -->
+<!-- Main Task Monitoring/Control Screen -->
+
+{% extends "deft_base_mini.html" %}
+
+{% block content %} 
+<h4>Task Monitor</h4>
+
+<!-- Here we have a stub for form submission -->
+<!-- form name="input" method="POST">{% csrf_token %}
+<input type="submit" value="SUBMIT" -->
+
+
+<hr/>
+<div align="center">
+<table>
+<tr>
+<td>
+{% include "deft_paginator.html" %}
+</td>
+<td>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+
+<!-- Save for later: td>
+Sort by: 
+</td>
+<td>
+<a href="?sort=id">ID</a>
+</td>
+<td>
+<a href="?sort=manager">Manager</a>
+</td>
+<td>
+<a href="/meta/?sort=requestor">Requestor</a>
+</td -->
+
+</tr>
+</table>
+</div>
+
+<table>
+<tr>
+<th>ID</th>
+<th>Meta</th>
+<th>State</th>
+<th>Parameters</th>
+<th>Tag</td>
+<th>Comment</th>
+<th>Transpath</th>
+</tr>
+{% for t in tasks %}
+<tr>
+<td><a href="/taskdetail/?task={{ t.task_id }}">{{ t.task_id }}</a></td>
+<td><a href="/metadetail/?meta={{ t.task_meta }}">{{ t.task_meta }}</td>
+<td>{{ t.task_state }}</td>
+<td>{{ t.task_param }}</td>
+<td>{{ t.task_tag }}</td>
+<td>{{ t.task_comment }}</td>
+<td>{{ t.task_transpath }}</td>
+</tr>
+{% endfor %}
+
+
+</table>
+
+<!-- /form -->
+<hr/>
+{{ answer }}
+<hr/>
+
+
+{% endblock %}

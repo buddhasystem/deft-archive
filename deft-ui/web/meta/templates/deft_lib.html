@@ -1,0 +1,43 @@
+<!-- filename: deft_lib.html -->
+
+{% extends "deft_base_mini.html" %}
+
+  
+{% block content %} 
+<h4>Meta-Task Template Library</h4>
+<!-- form name="input" method="POST">{% csrf_token %}
+<input type="submit" value="SUBMIT" -->
+
+<hr/>
+{{ answer }}
+<hr/>
+<table>
+<tr>
+<th>Select</th>
+<th>Name</th>
+<th>Created</td>
+<th>Updated</th>
+<th>Author</th>
+<!-- th>Requestor</th>
+<th>Cloud</th>
+<th>Site</th -->
+</tr>
+
+{% for m in metas %}
+<tr>
+<td><a href="/metadetail/?meta={{ m.meta_id }}">{{ m.meta_id }}</a></td>
+<td>{{ m.meta_name }}</td>
+<td>{{ m.meta_req_ts }}</td>
+<td>{{ m.meta_upd_ts }}</td>
+<td>{{ m.meta_manager }}</td>
+<!-- td>{{ m.meta_requestor }}</td>
+<td>{{ m.meta_cloud }}</td>
+<td>{{ m.meta_site }}</td -->
+</tr>
+{% endfor %}
+
+</table>
+</form>
+
+
+{% endblock %}

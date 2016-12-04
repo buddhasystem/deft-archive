@@ -1,0 +1,36 @@
+{% extends "prodtask/_index.html" %}
+{% load url from future %}
+{% load static from staticfiles %}
+
+{% block bl_page_title %}Monte Carlo Production Monitoring{% endblock %}
+
+{% block bl_content_body %}Welcome to Monte Carlo Production Monitoring prototype portal{% endblock %}
+
+{% block bl_extra_css %}
+{{ block.super }}
+	<style type="text/css" title="currentStyle">
+        @import "{% static "css/progress.css" %}";
+        @import "{% static "css/tooltip.css" %}";
+	</style>
+{% endblock %}
+
+{% block bl_extra_js %}
+{{ block.super }}
+    <script type="text/javascript" src="{% static "js/jquery.tipTip.minified.js" %}"></script>
+{% endblock %}
+
+
+{% block top_menu_6 %}
+          <a href="#">Help</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'mcprod:about' %}">About</a></li>
+          </ul>
+{% endblock %}
+
+{% block bl_body %}
+    {{ block.super }}
+    <script> $(document).ready(
+        function(){
+            $(".meter").tipTip({maxWidth: "auto", edgeOffset: 10}); }
+        ); </script>
+{% endblock %}

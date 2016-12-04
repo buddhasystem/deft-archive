@@ -1,0 +1,12 @@
+README
+module.cfg
+setup.cfg
+setup.py
+templates/index.html
+templates/load.js
+templates/settings.js
+templates/media/css/base.css
+templates/media/css/global.css
+templates/media/images/deft.jpg
+templates/media/images/table_minus.png
+templates/media/images/table_plus.png

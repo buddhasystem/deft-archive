@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>DEFT Meta-Task Table</title>
+  </head>
+
+  <body>
+    <h1>ATLAS DEFT Meta-Task Table</h1>
+
+Total Meta-Tasks found: {{ cnt }}
+
+<table border="1">
+<tr>
+
+
+<th>ID</th>
+<th>comment</th>
+<th>Requestor</th>
+<th>Manager</th>
+<th>VO</th>
+<th>State</th>
+<th>Request Time</th>
+<th>Update Time</th>
+
+</tr>
+
+{% for m in metas %}
+<tr>
+
+<td>{{ m.meta_id }}</td>
+<td>{{ m.meta_comment }}</td>
+<td>{{ m.meta_requestor }}</td>
+<td>{{ m.meta_manager }}</td>
+<td>{{ m.meta_vo }}</td>
+<td>{{ m.meta_state }}</td>
+<td>{{ m.meta_req_ts }}</td>
+<td>{{ m.meta_upd_ts }}</td>
+
+
+{% endfor %}
+</table>
+
+    <hr>
+    <address><a href="mailto:mxp@acas0001.usatlas.bnl.gov">Maxim Potekhin</a></address>
+<!-- Created: Fri Jul  5 17:23:05 EDT 2013 -->
+<!-- hhmts start -->
+Last modified: Sun Jul  7 20:30:07 EDT 2013
+<!-- hhmts end -->
+  </body>
+</html>

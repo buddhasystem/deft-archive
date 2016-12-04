@@ -1,0 +1,107 @@
+
+{% extends "_base_grid.html" %}
+# We need to add:
+# Metatask data prepopulation
+# Defaults in cookies
+# Defaults are intelligent based on tags
+
+{% block urlprefix %}{{ prefix }}{% endblock %}
+{% block title %}User Interface{% endblock %}
+{% block body %}
+{% comment %}
+<p>hi there!
+    <ul class="column left">
+        <li><a href="{{ prefix }}/">index page</a></li>
+        <li><a href="{{ prefix }}/list_jobs/" target="_blank">list PanDA jobs</a></li>
+        <li><a href="{{ prefix }}/schedconfig/" target="_blank">list PanDA queues</a></li>
+        <li>update_schedconfig table from AGIS</a></li>
+    </ul>
+</p>
+{% endcomment %}
+
+{% if success %}
+    <h3> Task added successfully </h3>
+{% endif %}         
+{% if failure %}
+    <h3> Task addition failed. Please try again. </h3>
+{% endif %}         
+<form method="POST" action=".">
+    {% csrf_token %}
+    
+    <div class="row">
+      {% if success %}
+          <input type="submit" class="button success" value="Add New Task"
+                 id="create">
+      {% else %}
+          <input type="submit" class="button" value="Add New Task" id="create">
+      {% endif %}
+      <input type="reset" class="button" value="Reset" id="reset">   
+      <p>
+      <p>
+    </div>
+    
+    {% for field in task_form %}
+        <div class="large-2 columns">
+          {{ field.errors }}
+          {{ field.label_tag }} {{ field }}
+       </div>
+    {% endfor %}
+</form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+{#    <p><label for="id_task_id">Task id:</label> #}
+{#    <input id="id_task_id" name="task_id" type="text" /></p> #}
+{#    <p><label for="id_task_meta">Task meta:</label> <select id="id_task_meta" name="task_meta"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">1000</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_comment">Task comment:</label> <input id="id_task_comment" maxlength="128" name="task_comment" type="text" /></p> #}
+{#    <p><label for="id_task_dataset">Task dataset:</label> <select id="id_task_dataset" name="task_dataset"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">1000</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_destination">Task destination:</label> <select id="id_task_destination" name="task_destination"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">SWT2_CPB_PRODDISK</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_diskcount">Task diskcount:</label> <input id="id_task_diskcount" name="task_diskcount" type="text" /></p> #}
+{#    <p><label for="id_task_events_per_job">Task events per job:</label> <input id="id_task_events_per_job" name="task_events_per_job" type="text" /></p> #}
+{#    <p><label for="id_task_formats">Task formats:</label> <input id="id_task_formats" maxlength="80" name="task_formats" type="text" value="(&#39;NTUP_TOP&#39;, &#39;Top-Group Ntuple (NTUP_TOP)&#39;)" /></p> #}
+{#    <p><label for="id_task_group">Task group:</label> <select id="id_task_group" name="task_group"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">Higgs</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_lumiblock">Task lumiblock:</label> <input id="id_task_lumiblock" name="task_lumiblock" type="checkbox" /></p> #}
+{#    <p><label for="id_task_num_events">Task num events:</label> <input id="id_task_num_events" name="task_num_events" type="text" /></p> #}
+{#    <p><label for="id_task_owner">Task owner:</label> <select id="id_task_owner" name="task_owner"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">Alden</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_param">Task param:</label> <input id="id_task_param" maxlength="4000" name="task_param" type="text" /></p> #}
+{#    <p><label for="id_task_priority">Task priority:</label> <input id="id_task_priority" name="task_priority" type="text" /></p> #}
+{#    <p><label for="id_task_project">Task project:</label> <select id="id_task_project" name="task_project"> #}
+{#        <option value="" selected="selected">---------</option> #}
+{#        <option value="1000">top_mc</option> #}
+{#        <option value="1001">higgs_mc</option> #}
+{#        <option value="1002">data11_7TeV</option> #}
+{#    </select></p> #}
+{#    <p><label for="id_task_project_mode">Task project mode:</label> <input id="id_task_project_mode" maxlength="300" name="task_project_mode" type="text" /></p> #}
+{#    <p><label for="id_task_ram">Task ram:</label> <input id="id_task_ram" name="task_ram" type="text" /></p> #}
+{#    <p><label for="id_task_reprocessing">Task reprocessing:</label> <input id="id_task_reprocessing" name="task_reprocessing" type="checkbox" /></p> #}
+{#    <p><label for="id_task_state">Task state:</label> <input id="id_task_state" maxlength="16" name="task_state" type="text" /></p> #}
+{#    <p><label for="id_task_tag">Task tag:</label> <input id="id_task_tag" maxlength="20" name="task_tag" type="text" /></p> #}
+{#    <p><label for="id_task_total_num_genev">Task total num genev:</label> <input id="id_task_total_num_genev" name="task_total_num_genev" type="text" /></p> #}
+{#    <p><label for="id_task_transpath">Task transpath:</label> <input id="id_task_transpath" maxlength="128" name="task_transpath" type="text" /></p> #}
+{#    <p><label for="id_task_vo">Task vo:</label> <input id="id_task_vo" maxlength="16" name="task_vo" type="text" /></p> #}
+{#    <p><label for="id_slug">Slug:</label> <input id="id_slug" maxlength="50" name="slug" type="text" /></p> #}

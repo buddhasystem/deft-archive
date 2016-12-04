@@ -1,0 +1,105 @@
+{% extends "core/_layout.html" %}
+{% load url from future %}
+
+{% block bl_page_title %}{{ title }}{% endblock %}
+{% block bl_extra_css %}{% endblock %}
+{% block bl_extra_js %}{% endblock %}
+{% block bl_gacode %}UA-44940804-1{% endblock %}
+{% block bl_gaweb %}pandawms.org{% endblock %}
+{% block bl_title %}ProdTask Monitoring{% endblock %}
+{% block bl_subtitle %}Home page{% endblock %}
+
+{% block top_menu_1 %}
+          <a href="#">DEFT</a>
+          <ul class="dropdown">
+            <li><a href="/">Home</a></li>
+            <li class="divider"></li>
+          </ul>
+{% endblock %}
+
+{% block top_menu_2 %}
+          <a href="#">ProdTask</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'prodtask:home' %}">Home</a></li>
+            <li><a href="{% url 'prodtask:prodtask_table' %}">Requested tasks</a></li>
+            <li><a href="{% url 'prodtask:about' %}">About</a></li>
+            <li class="divider"></li>
+          </ul>
+{% endblock %}
+
+{% block top_menu_3 %}
+          <a href="#">JEDI</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'jedi:home' %}">Home</a></li>
+            <li><a href="{% url 'jedi:task_table' %}">Tasks</a></li>
+            <li><a href="{% url 'jedi:dataset_table' %}">Datasets</a></li>
+            <li><a href="{% url 'jedi:datasetcontent_table' %}">Dataset contents</a></li>
+            <li><a href="{% url 'jedi:about' %}">About</a></li>
+            <li class="divider"></li>
+          </ul>
+{% endblock %}
+
+{% block top_menu_4 %}
+          <a href="#">Monte Carlo</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'mcprod:home' %}">Home</a></li>
+            <li><a href="{% url 'mcprod:requests_table' %}">List of Production Requests</a></li>
+            <li><a href="{% url 'mcprod:about' %}">About</a></li>
+            <li class="divider"></li>
+          </ul>
+{% endblock %}
+
+{% block top_menu_all_5 %}{% endblock %}
+{% block top_menu_6 %}
+          <a href="#">Help</a>
+          <ul class="dropdown">
+            <li><a href="{% url 'prodtask:about' %}">About</a></li>
+          </ul>
+{% endblock %}
+
+
+{% block header-nav-chain-1 %}<a href="http://pandawms.org/bigpandamon/v2/">BigPanDA</a>{% endblock %}{% block header-nav-chain-1-separator %}{% endblock %}
+{% block header-nav-chain-2 %}<a href="/">DEFT</a>{% endblock %}{% block header-nav-chain-2-separator %}{% endblock %}
+{% block header-nav-chain-3 %}<a href="{% url 'prodtask:home' %}">ProdTask</a>{% endblock %}{% block header-nav-chain-3-separator %}{% endblock %}
+{% block header-nav-chain-4 %}<a href="{% url 'jedi:home' %}">JEDI</a>{% endblock %}{% block header-nav-chain-4-separator %}{% endblock %}
+{% block header-nav-chain-5 %}<a href="{% url 'mcprod:home' %}">MCProd</a>{% endblock %}{% block header-nav-chain-5-separator %}{% endblock %}
+{% block header-nav-chain-6 %}{% endblock %}
+
+
+{% block left_menu_content %}
+  <span class="left-menu-title">ProdTask</span>
+  <ul>
+    <li><a class="left-menu-item" href="/">DEFT</a>
+    <li><a class="left-menu-item" href="{% url 'prodtask:home' %}">ProdTask</a>
+      <ul>
+        <li><a class="left-menu-subitem" href="{% url 'prodtask:prodtask_table' %}">Requested tasks</a>
+      </ul>
+    </li>
+    <li><a class="left-menu-item" href="{% url 'jedi:home' %}">JEDI</a>
+      <ul>
+        <li><a class="left-menu-subitem" href="{% url 'jedi:task_table' %}">Tasks</a></a>
+        <li><a class="left-menu-subitem" href="{% url 'jedi:dataset_table' %}">Datasets</a>
+        <li><a class="left-menu-subitem" href="{% url 'jedi:datasetcontent_table' %}">Dataset contents</a>
+      </ul>
+    </li>
+    <li><a class="left-menu-item" href="{% url 'mcprod:home' %}">Monte Carlo</a>
+      <ul>
+        <li><a class="left-menu-subitem" href="{% url 'mcprod:requests_table' %}">List of Production Requests</a>
+      </ul>
+    </li>
+  </ul>
+{% endblock %}
+
+
+{% block bl_content_body %}Welcome to ProdTask prototype portal{% endblock %}
+
+
+{% block body_mobile %}{% endblock %}
+{% block bottom_info %}{% endblock %}
+{% block bottom_link_all_1 %}<a href="/">DEFT</a>{% endblock %}
+{% block bottom_link_all_2 %}<a href="{% url 'prodtask:home' %}">ProdTask</a>{% endblock %}
+{% block bottom_link_all_3 %}<a href="{% url 'jedi:home' %}">JEDI</a>{% endblock %}
+{% block bottom_link_all_4 %}<a href="{% url 'mcprod:home' %}">MCProd</a>{% endblock %}
+{% block bottom_link_4 %}{% endblock %}
+
+
